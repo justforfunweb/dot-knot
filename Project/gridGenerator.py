@@ -42,7 +42,7 @@ def check_valid_number_dots(dots , rows , columns):
     
     return dots
 
-def makeGrid(rows , columns):
+def make_empty_grid(rows , columns):
     
     grid = [[0]*rows]*columns
     
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     
     number_of_dots = check_valid_number_dots(int(input("Enter the number of dots: ")) , rows , columns)
     
-    grid = makeGrid(rows , columns)
+    grid = make_empty_grid(rows , columns)
     
     board = gridTester(rows , columns , number_of_dots , grid)
     
