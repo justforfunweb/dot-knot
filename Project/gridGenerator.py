@@ -20,7 +20,7 @@ class gridTester:
         
     def generate_dots_positions(self):
         dots_positions = []
-        for i in range(self.dots):
+        for _ in range(self.dots):
             dot_placements = []
             
             dot_placements.append(random.randint(3,10))
