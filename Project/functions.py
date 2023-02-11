@@ -35,4 +35,7 @@ class gridFunc:
         else:
             grid[dot_x][dot_y] = place_holder
 
-        return np.array(grid)            
+        return np.array(grid)
+    
+    def find_path(self , grid : list , start_dot_x : int , start_dot_y : int , end_dot_x : int , end_dot_y : int , place_holder : int) -> list:
+        
