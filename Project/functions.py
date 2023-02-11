@@ -3,29 +3,28 @@ from pandas import *
 import random
 
 class gridFunc:
-    def __init__(self , rows : int , columns : int , dots : int , grid : list) -> None:
+    def __init__(self , rows : int , columns : int , dots : int) -> None:
         self.rows = rows
         self.columns = columns
         self.dots = dots
-        self.grid = grid
         
-    def print_grid_spacing(self) -> None:
-        grid = np.array(self.grid)
+    def print_grid_spacing(self , grid : list) -> None:
+        grid = np.array(grid)
         print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in grid]))
         
-    def print_grid_dataframe(self) -> None :
-        print(DataFrame(self.grid))
+    def print_grid_dataframe(self , grid : list) -> None :
+        print(DataFrame(grid))
         
     def generate_random_blank_grid(self , place_holder : int) -> list:
         rows = random.randint(3,10)
         columns = random.randint(3,10)
         
-        grid = [[place_holder]*rows]*columns
+        grid = [[place_holder]*columns]*rows
         
         return np.array(grid)
     
     def generate_blank_gird(self , rows : int , columns : int , place_holder : int) -> list:
-        grid = [[place_holder]*rows]*columns
+        grid = [[place_holder]*columns]*rows
         
         return np.array(grid)
     
@@ -52,3 +51,6 @@ class gridFunc:
             grid[start_dot_x][start_dot_y] = 0
             
         return np.array(grid)
+    
+if __name__ == "__main__":
+    print("PASS")
