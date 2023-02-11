@@ -28,3 +28,11 @@ class gridFunc:
         grid = [[place_holder]*rows]*columns
         
         return np.array(grid)
+    
+    def place_dot(self , grid : list , dot_x : int , dot_y : int , place_holder : int) -> list:
+        if(grid[dot_x][dot_y] == place_holder):
+            grid[dot_y][dot_x] = place_holder
+        else:
+            grid[dot_x][dot_y] = place_holder
+
+        return np.array(grid)            
