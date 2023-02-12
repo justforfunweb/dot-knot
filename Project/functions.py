@@ -52,5 +52,27 @@ class gridFunc:
             
         return np.array(grid)
     
+    def find_path_shortest(self , grid : list , start_dot_x : int , start_dot_y : int , end_dot_x : int , end_dot_y : int , place_holder : int) -> list:
+        if(start_dot_x == end_dot_x and start_dot_y == end_dot_y):
+            return 1
+        
+        '''
+        There will be eight possible places for the end dot's co-ordinates to be located at.
+        They are (Clock-wise order):
+        
+        1. North
+        2. North - East
+        3. East
+        4. South - East
+        5. South
+        6. South - West
+        7. West
+        8. North - West
+        
+        Their priority of movement will be first in the exact direction 
+        for diagonal dots will take sides which are shorter first ie length
+        or breadth then the reaming side 
+        '''
+    
 if __name__ == "__main__":
     print("PASS")
