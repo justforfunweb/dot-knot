@@ -3,38 +3,42 @@ import random
 from pandas import *
 
 class gridTester:
-    def __init__(self , rows , columns , dots , grid):
+    def __init__(self , rows : int , columns : int , dots : int , grid : list) -> None:
         self.rows = rows
         self.columns = columns
         self.dots = dots * 2
         self.grid = grid
         
-    def grid_print(self , grid):
+    def grid_print(self , grid : list) -> None:
         grid = np.array(grid)
         print(DataFrame(grid))
         
-    def place_dots(self , dots_positions):
+    def place_dots(self , dots_positions : list) -> None:
         for items in dots_positions:
             self.grid[items[0]][items[1]] = 'x'
                 
-    def generate_dots_location(self):
+    def generate_dots_location(self) -> list:
         dot_x = random.randint(3,10)
         dot_y = random.randint(3,10)
         
         return [dot_x , dot_y]
         
-    def generate_dots_positions(self):
+    def generate_dots_positions(self) -> list:
         dots_positions = []
         for _ in range(self.dots):
-            dot_placements = []
             
-            
-            
-        print(dots_positions)
-        
+            x , y = map(int , self.generate_dots_location())
+
+            while([x,y] in dots_positions):
+                x , y = map(int , self.generate_dots_location())
+
+            temp = [x,y]
+
+            dots_positions.append(temp)
+                    
         return dots_positions
             
-def check_valid_number_dots(dots , rows , columns):
+def check_valid_number_dots(dots : int , rows : int , columns : int) -> int:
     if(dots > max(rows , columns)+1):
         dots = dots % ((max(rows , columns)//2)+1)
     else:
@@ -42,7 +46,7 @@ def check_valid_number_dots(dots , rows , columns):
     
     return dots
 
-def make_empty_grid(rows , columns):
+def make_empty_grid(rows : int , columns : int) -> list:
     
     grid = [[0]*rows]*columns
     
